@@ -121,7 +121,7 @@ async function displayAlbums() {
 }
 
 async function main() {
-  await getsongs("songs/NewArrival")
+  await getsongs("songs/NewArrival/info.json")
   playMusic(songs[0], true)
 
   //display the albums in the page
