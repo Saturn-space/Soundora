@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soundora</title>
+</head>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/utility.css">
+
+<body>
+    <div class="container flex bg-black">
+
+        <div class="left">
+            <div class="close invert">
+                <img src="Images/close.svg" class="close-icon" alt="opps">
+            </div>
+            <div class="home rounded bg-grey m-1 p-1">
+                <div class="logo  flex "><img class="invert" src="Images/logo2.png" alt="home" width="35px">
+                    <div>
+                        <h2> Soundora </h2>
+                    </div>
+                </div>
+                <ul>
+                    <li><img class="invert" src="Images/home.svg" alt="home">Home</li>
+                    <li><img class="invert" src="Images/search.svg" alt="search">Search</li>
+                </ul>
+            </div>
+            <div class="library rounded bg-grey m-1 p-1">
+                <div class="heading ">
+                    <img class="invert" src="Images/your library.svg" alt="library" width="25px">
+                    <h2>Your Library</h2>
+                </div>
+                <div class="songList">
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="footer">
+                    <div> <a href="http://" target="_blank" rel="noopener noreferrer">Legal</a></div>
+                    <div> <a href="http://" target="_blank" rel="noopener noreferrer">Safety and Privacy Center</a>
+                    </div>
+                    <div> <a href="http://" target="_blank" rel="noopener noreferrer">Privacy Policy</a></div>
+                    <div> <a href="http://" target="_blank" rel="noopener noreferrer">Cookies</a></div>
+                    <div> <a href="http://" target="_blank" rel="noopener noreferrer">About Ads</a></div>
+                    <div> <a href="http://" target="_blank" rel="noopener noreferrer">Accessibility</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="right rounded  bg-grey">
+            <div class="header">
+                <div class="nav">
+                    <div class="hamburger-container">
+                        <img class="hamburger invert" src="Images/list-stars.svg" alt="opps">
+                        <img class="invert" src="Images/chevron-left.svg" alt="right">
+                        <img class="invert" src="Images/chevron-right.svg" alt="left">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="signup-btn">Sign up</button>
+                    <button class="login-btn">Log in</button>
+                </div>
+
+            </div>
+            <div class="soundora-playlist">
+                <h2>Soundora Playlist</h2>
+                <div class="card-container"></div>
+
+                <div class="playbar">
+                    <div class="seekBar">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="AboveBar">
+                        <div class="songinfo"></div>
+                        <div class="play-buttons">
+                            <img id="previousbtn" src="Images/previous.svg" alt="previous">
+                            <img id="playbtn" src="Images/play-fill.svg" alt="play">
+                            <img id="nextbtn" src="Images/next.svg" alt="next">
+                        </div>
+                        <div class="speaker">
+                            <div class="songTime"></div>
+                            <div class="volume invert">
+                                <img src="Images/speaker.svg" height="20px" alt="oops">
+                                <div class="range">
+                                    <input type="range" name="volume" id="volrange">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <script src="script/script.js"></script>
+</body>
+
+</html>

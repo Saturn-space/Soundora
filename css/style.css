@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui;
+    font-weight: 600;
+    font-style: normal;
+}
+:root{
+    --a:0;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+.left {
+    background-color: black;
+    width: 25vw;
+    padding: 5px;
+}
+
+.right {
+    width: 75vw;
+    margin: 10px 0px;
+    margin-right: 8px;
+    position: relative;
+}
+
+.home>ul>li {
+    width: 20px;
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding-top: 15px;
+    align-items: center;
+}
+
+.library {
+    min-height: 70vh;
+    position: relative;
+}
+
+.heading {
+    width: 200px;
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+    align-items: center;
+    font-size: 15px;
+}
+
+.footer {
+    display: flex;
+    font-size: 10px;
+    gap: 10px;
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: gray;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(63, 63, 63);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.header>* {
+    padding: 15px;
+}
+
+.soundora-playlist {
+    padding: 15px;
+}
+
+.soundora-playlist .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px;
+    max-height: 62vh;
+    overflow-y: auto;
+
+}
+
+.soundora-playlist .card {
+    width: 180px;
+    /* height: 300px; */
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(43, 43, 43);
+    margin: 5px;
+    position: relative;
+    cursor: pointer;
+
+}
+
+.card img {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.play {
+    display: flex;
+    height: 40px;
+    width: 40px;
+    border: solid rgb(3, 162, 190);
+    background-color: rgb(3, 162, 190);
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 140px;
+    right: 20px;
+    opacity: var(--a);
+    transition: all 0.3s ease-in;
+}
+
+.card:hover {
+    cursor: pointer;
+    background-color: rgb(63, 63, 63);
+    transition: all 0.6s;
+    --a : 1;
+}
+
+.card p {
+    font-size: 14px;
+    font-weight: 380;
+    color: antiquewhite;
+}
+
+.signup-btn,
+.login-btn {
+    height: 35px;
+    width: 90px;
+    margin: 2px;
+    border-radius: 30px;
+    border: none;
+    color: rgb(56, 56, 56);
+    background-color: rgb(194, 194, 194);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(110%);
+    color: rgb(20, 20, 20);
+    background-color: azure;
+}
+
+.playbar {
+    position: fixed;
+    bottom: 15px;
+    border-radius: 10px;
+    background-color: rgb(0, 116, 155);
+    width: 69vw;
+    min-height: 47px;
+    padding: 10px;
+}
+
+.play-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.play-buttons img {
+    cursor: pointer;
+    width: 40px;
+    filter: invert(1);
+}
+
+.songList {
+    height: 330px;
+    overflow: auto;
+}
+
+.hamburger {
+    display: none;
+}
+
+.hamburger-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.close {
+    display: none;
+}
+
+.songList ul {
+    padding: 0px 15px;
+}
+
+.songList .info {
+    font-size: 11px;
+    width: 344px;
+}
+
+.songList ul li {
+    list-style-type: upper-roman;
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+    border: 2px solid white;
+    margin: 5px;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playnow {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.seekBar {
+    position: absolute;
+    bottom: 0px;
+    height: 3px;
+    width: 97%;
+    /* border: 2px solid rgb(155 222 233); */
+    border-radius: 10px;
+    background-color: rgb(155 222 233);
+    margin: 5px;
+    cursor: pointer;
+}
+
+.circle {
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+    background-color: rgb(155 222 233);
+    position: relative;
+    bottom: 8px;
+    left: 0%;
+    transition: left 0.5s;
+}
+
+.songinfo {
+    width: 220px;
+}
+
+.AboveBar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+
+}
+
+.speaker {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+/* .volume:hover::after{
+    content: "mohan";
+    cursor: pointer;
+} */
+.volume {
+    cursor: pointer;
+    gap: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#volrange{
+    cursor: pointer;
+}
+@media (max-width: 1300px) {
+    .left {
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        left: -100%;
+        transition: all 0.5s;
+        z-index: 1;
+        width: 350px;
+        border-radius: 20px;
+    }
+
+    .songList {
+        height: 54vh;
+    }
+
+    .right {
+        width: 99vw;
+        margin: auto;
+        margin-top: 6px;
+
+    }
+
+    .playbar {
+        width: calc(100vw - 50px);
+    }
+
+    .seekBar {
+        width: calc(100vw - 60px);
+    }
+
+    .hamburger {
+        display: block;
+        width: 30px;
+        cursor: pointer;
+    }
+
+    .close-icon {
+        width: 30px;
+    }
+
+    .close {
+        display: block;
+        position: absolute;
+        right: 26px;
+        top: 30px;
+        cursor: pointer;
+    }
+
+    .soundora-playlist .card-container {
+        justify-content: center;
+        margin: 2px;
+    }
+
+    .soundora-playlist .card {
+        width: 35vw;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .soundora-playlist {
+        padding: 10px;
+    }
+
+    .AboveBar {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .right {
+        height: 98.5vh;
+    }
+
+    .soundora-playlist>h2 {
+        padding-bottom: 6.5px;
+    }
+
+    .songinfo {
+        width: auto;
+    }
+    .play{
+        top: 11vh;
+    }
+
+}
