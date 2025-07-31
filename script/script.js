@@ -51,11 +51,12 @@ async function getsongs(folder) {
 
   return songs
 }
-}
+
 
 function playMusic(track, pause = false) {
   // let audio = new Audio(/songs/ + track)
-  currentSong.src = `/songs/NewArrival/${encodeURIComponent(track)}`
+   currentSong.src = `/${currentFolder}/${encodeURIComponent(track)}`
+
 
   if (!pause) {
     currentSong.play()
