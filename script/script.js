@@ -18,44 +18,56 @@ function TimeFormat(seconds) {
 
 }
 
+
+
 async function getsongs(folder) {
   currentFolder = folder;
-
-  let res = await fetch(`/${folder}/info.json`)
-  let data = await res.json()
-  songs = data.songs
-
-  // Populate UI
-  let songUL = document.querySelector(".songList ul")
-  songUL.innerHTML = ""
-  for (const song of songs) {
-    songUL.innerHTML += `
-      <li>
-        <img src="Images/music-note-01-stroke-rounded.svg" alt="icons">
-        <div class="info">
-          <div>${song}</div>
-          <div>Song Artist</div>
-        </div>
-        <div class="playnow">
-          <img class="invert" src="Images/play-fill.svg" alt="icon" width="30px">
-        </div>
-      </li>`
+  let a = await fetch(`http://127.0.0.1:3000/${folder}/`)
+  let response = await a.text()
+  let div = document.createElement("div")
+  div.innerHTML = response
+  let as = div.getElementsByTagName("a")
+  songs = []
+  for (let index = 0; index < as.length; index++) {
+    const element = as[index];
+    if (element.href.endsWith(".mp3")) {
+      songs.push(element.href.split(`/${folder}/`)[1])
+    }
+  
   }
 
-  Array.from(songUL.children).forEach(e => {
-    e.addEventListener("click", () => {
-      let track = e.querySelector(".info").firstElementChild.innerText.trim()
-      playMusic(track)
-    })
-  })
+//play the first song of the playlist
 
+
+
+  let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0]
+  songUL.innerHTML = "";
+  for (const element of songs) {
+    songUL.innerHTML = songUL.innerHTML + `<li><img src="Images/music-note-01-stroke-rounded.svg" alt="icons">
+                        <div class="info">
+                            <div>${element.replaceAll("%20", " ")}</div>
+                            <div>Song Artist</div>
+                        </div>
+                        <div class = "playnow">
+                        <img class="invert" src="Images/play-fill.svg" alt="icon" width="30px" >
+                        </div> 
+                        </li>`
+  }
+  //attach an event listner in each song
+
+  Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => (
+    e.addEventListener("click", element => {
+      console.log(e.querySelector(".info").firstElementChild.innerHTML)
+      playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
+    })
+
+  ))
   return songs
 }
 
-
 function playMusic(track, pause = false) {
   // let audio = new Audio(/songs/ + track)
-   currentSong.src = `/${currentFolder}/${encodeURIComponent(track)}`
+  currentSong.src = `/${currentFolder}/` + track
 
 
   if (!pause) {
@@ -69,7 +81,7 @@ function playMusic(track, pause = false) {
 }
 
 async function displayAlbums() {
-  let a = await fetch(`/songs/`)
+  let a = await fetch(`http://127.0.0.1:3000/songs/`)
   let response = await a.text()
   let div = document.createElement("div")
   div.innerHTML = response
@@ -83,7 +95,7 @@ async function displayAlbums() {
       let folder = e.href.split("/").slice(-2)[0]
 
       //get the meta data of the folder
-      let a = await fetch(`/songs/${folder}/info.json`);
+      let a = await fetch(`http://127.0.0.1:3000/songs/${folder}/info.json`);
       let response = await a.json();
       cardcontainer.innerHTML = cardcontainer.innerHTML + `<div data-folder="${folder}" class="card">
                         <div class="play">
